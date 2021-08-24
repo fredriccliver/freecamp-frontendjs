@@ -1,0 +1,27 @@
+<html>
+  <head></head>
+  <body>
+    <div>John</div>
+    <div id="dave">Dave</div>
+    <div>Sally</div>
+    <div>Harry</div>
+    <div class="rich">Shore</div>
+    <div class="rich">Merry</div>
+    <div class="royal rich">Kanny</div>
+    <br>
+    <div id="output">Result</div>
+    <script>
+      var output = document.querySelector('#output');
+      
+      // string interpolation
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+      
+      output.innerHTML += `<br>div: ${document.querySelectorAll('div')}`
+      output.innerHTML += `<br>length: ${document.querySelectorAll('div').length}`
+      output.innerHTML += `<br>rich: ${document.querySelectorAll('.rich').length}`
+      output.innerHTML += `<br>royal: ${document.querySelectorAll('.royal').length}`
+      output.innerHTML += `<br>dave: ${document.querySelectorAll('#dave').length}`
+      output.innerHTML += `<br>one rich: ${document.querySelector('.rich').innerHTML}`
+    </script>
+  </body>
+</html>

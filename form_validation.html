@@ -1,0 +1,54 @@
+<html>
+  <body>
+    <div style="display: flex; flex-direction: column; width: 150px">
+      <h1>Sign Up</h1>
+      <input id="email" type="text" placeholder="email" />
+      <input id="name" type="text" placeholder="name" />
+      <input id="password" type="text" placeholder="password" />
+      <button id="apply_button" style="margin-top: 20px">Apply</button>
+      <p id="warning_label">Fill contents and press the button.</p>
+    </div>
+
+    <script>
+      var button = document.querySelector("#apply_button")
+      var warning_label = document.querySelector("#warning_label")
+
+      button.addEventListener("click", function () {
+        var email = document.querySelector("#email").value
+        var name = document.querySelector("#name").value
+        var password = document.querySelector("#password").value
+
+        if (validation("email", email) == false) {
+          warning_label.innerHTML = "Email is not valid"
+          return
+        }
+
+        if (validation("name", name) == false) {
+          warning_label.innerHTML = "Fill your name"
+          return
+        }
+
+        if (validation("password", password) == false) {
+          warning_label.innerHTML = "Type in a password"
+          return
+        }
+
+        warning_label.innerHTML = "It passed all validations"
+      })
+
+      // type: [email, name, password]
+      // value: value of the type
+      function validation(type, value) {
+        if (type == "email") {
+          return value.includes("@")
+        } else if (type == "name") {
+          return value.length != 0
+        } else if (type == "password") {
+          return value.length != 0
+        } else {
+          return false
+        }
+      }
+    </script>
+  </body>
+</html>
